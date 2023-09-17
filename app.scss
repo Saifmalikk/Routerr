@@ -1,0 +1,103 @@
+/* Font Family */
+@import url('https://fonts.googleapis.com/css2?family=NewFont:wght@100;200;300;400;500;600;700;800;900&display=swap');
+$ff-primary: "NewFont", sans-serif; /* Change the primary font family to a different one */
+
+
+// Color
+$c-bg: whitesmoke; // Background color
+$c-primary: black; // Primary text color
+
+/* Font Size */
+:root, html {
+  font-size: 10px; // Define the base font size
+}
+
+@media screen and (max-width: 768px) {
+  :root, html {
+    font-size: 8px; // Modify font size for smaller screens
+  }
+}
+
+$fs-primary: 1.6rem; // Define the primary font size
+
+/* ##### CSS RESET ##### */
+*, *::before, *::after {
+  box-sizing: border-box; // Box-sizing reset
+}
+
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+  margin: 0; // Margin reset
+  color: rgb(0, 0, 0); // Text color
+  font-family: $ff-primary; // Use the primary font family
+  font-size: $fs-primary; // Use the primary font size
+}
+
+ul[role="list"], ol[role="list"] {
+  list-style: none; // Remove list styles
+}
+
+html:focus-within {
+  scroll-behavior: smooth; // Smooth scrolling when focused within HTML
+}
+
+body {
+  min-height: 100vh; // Minimum height to fill the viewport
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto; // Text-decoration reset
+}
+
+img, picture {
+  max-width: 100%; // Ensure images don't exceed their container width
+  display: block;
+}
+
+input, button, textarea, select {
+  font: inherit; // Inherit font styles for form elements
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto; // Reduce motion for accessibility
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* CSS GLOBAL STYLES */
+html, body {
+  background-color: $c-bg; // Set background color
+}
+
+a {
+  text-decoration: none; // Remove text decoration from links
+  color: inherit; // Inherit link color
+}
+
+.container {
+  --max-width: 1400px; // Define maximum container width
+  --padding: 1rem; // Define container padding
+  width: min(var(--max-width), 100% - (var(--padding) * 2)); // Responsive container width
+  margin-inline: auto; // Center the container horizontally
+}
+
+.page-title {
+  font-size: 5rem; // Large font size
+  font-weight: 500;
+  text-align: center; // Center-align the text
+  color: $c-primary; // Use the primary text color
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%; // Full width for smaller screens
+  }
+}
